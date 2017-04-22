@@ -15,12 +15,13 @@ class ProfileViewController: UIViewController {
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
     var user: User!
     @IBOutlet weak var name_text: UITextField!
+    @IBOutlet weak var email_label: UILabel!
     @IBOutlet weak var welcome_label: UILabel!
     @IBOutlet weak var title_text: UITextField!
     @IBOutlet weak var number_text: UITextField!
-    @IBOutlet weak var usertype_label: UILabel!
-    @IBOutlet weak var home_text: UITextField!
     
+    @IBOutlet weak var home_text: UITextField!
+    @IBOutlet weak var usertype_label: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.welcome_label.text = "Waiting For Database";
@@ -48,8 +49,18 @@ class ProfileViewController: UIViewController {
             // Get user value
             let value = snapshot.value as? NSDictionary
             let email = value?["email"] as? String ?? ""
-            self.welcome_label.text = "Welcome, " + email;
-            
+            self.email_label.text = email;
+            let name = value?["name"] as? String ?? ""
+            self.welcome_label.text = "Welcome, " + name;
+            self.name_text.text = email;
+            let usertype = value?["usertype"] as? String ?? ""
+            self.usertype_label.text = usertype;
+            let title = value?["title"] as? String ?? ""
+            self.title_text.text = title;
+            let home = value?["home"] as? String ?? ""
+            self.home_text.text = home;
+            let phone = value?["phone"] as? String ?? ""
+            self.number_text.text = phone;
             // ...
         }) { (error) in
             print(error.localizedDescription)
