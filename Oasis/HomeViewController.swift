@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class HomeViewController: UIViewController {
 
+
+
+    @IBOutlet weak var view_water_avai: UIButton!
     
+    @IBOutlet weak var view_historical: UIButton!
+    
+    @IBOutlet weak var submit_water_quality: UIButton!
+    
+    @IBOutlet weak var view_reports: UIButton!
+
+    @IBOutlet weak var submit_water_source: UIButton!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +33,8 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
