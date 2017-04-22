@@ -238,11 +238,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr4-ex-6mK">
-                                <rect key="frame" x="134" y="318" width="81" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save Profile"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iac-yN-etG">
                                 <rect key="frame" x="150" y="356" width="48" height="27"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -300,6 +295,14 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phg-o3-Z4t">
+                                <rect key="frame" x="135" y="327" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Profile"/>
+                                <connections>
+                                    <action selector="save_profile:" destination="B1o-h9-2jF" eventType="touchUpInside" id="U4R-Oq-C6x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -308,7 +311,7 @@
                         <outlet property="home_text" destination="jy3-eW-6fY" id="ujh-l7-NUf"/>
                         <outlet property="name_text" destination="Fw4-7M-rJs" id="4l7-wM-RlQ"/>
                         <outlet property="number_text" destination="udx-ff-pZM" id="DF4-ka-byX"/>
-                        <outlet property="title_text" destination="Fw4-7M-rJs" id="pLr-WK-ZKB"/>
+                        <outlet property="title_text" destination="CI4-hm-1Sr" id="IUB-nI-4pZ"/>
                         <outlet property="usertype_label" destination="tYZ-MB-FjR" id="KdP-OY-vHN"/>
                         <outlet property="welcome_label" destination="eqC-16-WsX" id="PjY-qU-5yl"/>
                     </connections>

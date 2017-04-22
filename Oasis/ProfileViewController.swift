@@ -17,9 +17,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var name_text: UITextField!
     @IBOutlet weak var email_label: UILabel!
     @IBOutlet weak var welcome_label: UILabel!
+
     @IBOutlet weak var title_text: UITextField!
     @IBOutlet weak var number_text: UITextField!
-    
     @IBOutlet weak var home_text: UITextField!
     @IBOutlet weak var usertype_label: UILabel!
     override func viewDidLoad() {
@@ -40,7 +40,15 @@ class ProfileViewController: UIViewController {
     
     func testing() {
     self.welcome_label.text = "testing"
-    pullProfile()}
+    pullProfile()
+    }
+    
+    
+    @IBAction func save_profile(_ sender: UIButton) {
+        pushProfile();
+        pullProfile();
+        
+    }
     
     func pullProfile(){
         self.welcome_label.text = "Profile";
@@ -48,11 +56,12 @@ class ProfileViewController: UIViewController {
         userInfoRef.child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
             let value = snapshot.value as? NSDictionary
+            
             let email = value?["email"] as? String ?? ""
             self.email_label.text = email;
             let name = value?["name"] as? String ?? ""
             self.welcome_label.text = "Welcome, " + name;
-            self.name_text.text = email;
+            self.name_text.text = name;
             let usertype = value?["usertype"] as? String ?? ""
             self.usertype_label.text = usertype;
             let title = value?["title"] as? String ?? ""
@@ -68,7 +77,16 @@ class ProfileViewController: UIViewController {
     }
     
     
+    
     func pushProfile(){
+        let userID = FIRAuth.auth()?.currentUser?.uid
+        let UserData: Dictionary<String,String> = [
+            "name": self.name_text.text!,
+            "title": self.title_text.text!,
+            "home": self.home_text.text!,
+            "phone": self.number_text.text!]
+        userInfoRef.child(userID!).updateChildValues(UserData)
+        pullProfile()
     }
     /*
     // MARK: - Navigation
