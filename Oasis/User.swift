@@ -42,10 +42,10 @@ struct User {
         uid = authData.uid
         email = authData.email!
         self.userType = userType;
-        self.phone = ""
-        self.title = ""
-        self.name = ""
-        self.home = ""
+        self.phone = " "
+        self.title = " "
+        self.name = " "
+        self.home = " "
         self.ref = nil
         
         

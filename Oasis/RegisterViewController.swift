@@ -22,6 +22,7 @@ class RegisterViewController:UIViewController,UIPickerViewDataSource,UIPickerVie
     @IBOutlet weak var register_button: UIButton!
     
     var user: User!
+    var newUser: User!
     let data = ["Worker","Reporter","Manager","Administrator"]
     let usersRef = FIRDatabase.database().reference(withPath: "users")
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
@@ -107,15 +108,15 @@ class RegisterViewController:UIViewController,UIPickerViewDataSource,UIPickerVie
         } else {
            FIRAuth.auth()?.createUser(withEmail: username_text.text!, password: password_text.text!) { (user, error) in
             if(error == nil){
-                let newUser = User(authData: user!,userType: self.userTypeSelected)
+                self.newUser = User(authData: user!,userType: self.userTypeSelected)
                 let newUserRef = self.userInfoRef.child(self.user.uid)
-                let UserData: Dictionary<String,Any> = ["uid": newUser.uid,
-                                                        "email": newUser.email,
-                                                        "usertype": newUser.userType.description,
-                                                        "title": newUser.title,
-                                                        "name": newUser.name,
-                                                        "homeaddress": newUser.home,
-                                                        "phone" : newUser.phone]
+                let UserData: Dictionary<String,Any> = ["uid": self.newUser.uid,
+                                                        "email": self.newUser.email,
+                                                        "usertype": self.newUser.userType.description,
+                                                        "title": self.newUser.title,
+                                                        "name": self.newUser.name,
+                                                        "homeaddress": self.newUser.home,
+                                                        "phone" : self.newUser.phone]
                 newUserRef.setValue(UserData)
                 self.signIn();
             }
