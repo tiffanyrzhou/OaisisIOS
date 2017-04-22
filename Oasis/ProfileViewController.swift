@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController {
     @IBAction func save_profile(_ sender: UIButton) {
         pushProfile();
         pullProfile();
+        self.performSegue(withIdentifier: "toHome", sender: self)
         
     }
     
