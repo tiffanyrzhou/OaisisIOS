@@ -13,6 +13,7 @@ import FirebaseDatabase
 
 class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
 
+
     @IBOutlet weak var status: UILabel!
     @IBOutlet weak var reporter_label: UILabel!
     @IBOutlet weak var date_label: UILabel!
@@ -33,6 +34,7 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        status.text = " ";
         self.oCondtion_picker.delegate = self;
         self.oCondtion_picker.dataSource = self;
         pullProfile();
@@ -100,7 +102,7 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
 
     @IBAction func submit_Report(_ sender: UIButton) {
         if(virus.hasText == false || contam.hasText == false) {
-            status.text = "Please enter Virus PPM and/or Latitude"
+            status.text = "Please enter Virus PPM and/or Contam. PPM"
         }
         else if(long.hasText == false || lat.hasText == false) {
             status.text = "Please enter Longtitude and/or Latitude"
@@ -115,7 +117,7 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
                 "virus" : self.virus.text!,
                 "contam" : self.contam.text!]
             newReportRef.setValue(reportData)
-            //self.performSegue(withIdentifier: "toHome", sender: self)
+            self.performSegue(withIdentifier: "toHome", sender: self)
         }
 
     }

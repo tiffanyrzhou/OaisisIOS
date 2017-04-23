@@ -12,6 +12,8 @@
 		9828CCBD1E5FB976004ACD32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */; };
 		985D85381EABFFCB00E2D31B /* WaterSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */; };
 		986D64341EAC5A0300D75DCD /* WaterQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */; };
+		986D64361EAD00D000D75DCD /* Report.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D64351EAD00D000D75DCD /* Report.swift */; };
+		986D64381EAD039700D75DCD /* ViewReportTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D64371EAD039700D75DCD /* ViewReportTableViewController.swift */; };
 		98763FA61E5DF303002A2EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98763FA51E5DF303002A2EDD /* AppDelegate.swift */; };
 		98763FA81E5DF303002A2EDD /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98763FA71E5DF303002A2EDD /* WelcomeController.swift */; };
 		98763FAD1E5DF303002A2EDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98763FAC1E5DF303002A2EDD /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterSourceViewController.swift; sourceTree = "<group>"; };
 		986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterQualityViewController.swift; sourceTree = "<group>"; };
+		986D64351EAD00D000D75DCD /* Report.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Report.swift; sourceTree = "<group>"; };
+		986D64371EAD039700D75DCD /* ViewReportTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewReportTableViewController.swift; sourceTree = "<group>"; };
 		98763FA21E5DF303002A2EDD /* Oasis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oasis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98763FA51E5DF303002A2EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98763FA71E5DF303002A2EDD /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				98763FA51E5DF303002A2EDD /* AppDelegate.swift */,
 				987D4AB91E679A4B003A4B4E /* User.swift */,
 				98CAE88D1E69C72800D81D9F /* UserType.swift */,
+				986D64351EAD00D000D75DCD /* Report.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -170,6 +175,7 @@
 				9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */,
 				985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */,
 				986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */,
+				986D64371EAD039700D75DCD /* ViewReportTableViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				986D64361EAD00D000D75DCD /* Report.swift in Sources */,
 				98763FA81E5DF303002A2EDD /* WelcomeController.swift in Sources */,
 				98763FA61E5DF303002A2EDD /* AppDelegate.swift in Sources */,
 				98CAE88E1E69C72800D81D9F /* UserType.swift in Sources */,
@@ -429,6 +436,7 @@
 				986D64341EAC5A0300D75DCD /* WaterQualityViewController.swift in Sources */,
 				98AC61BF1E5E4ACE00C0197C /* RegisterViewController.swift in Sources */,
 				985D85381EABFFCB00E2D31B /* WaterSourceViewController.swift in Sources */,
+				986D64381EAD039700D75DCD /* ViewReportTableViewController.swift in Sources */,
 				9828CCBD1E5FB976004ACD32 /* LoginViewController.swift in Sources */,
 				98BEF6DA1EAA7E60001CC71C /* ProfileViewController.swift in Sources */,
 				98A0B5631E5EB71100A35301 /* HomeViewController.swift in Sources */,
