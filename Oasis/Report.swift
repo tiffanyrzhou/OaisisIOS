@@ -21,17 +21,17 @@ struct Report {
     let id: String
     
     
-//    init(id:String, long: String, lat: String, oCondition:String, condition:String, type: String, reporter:String, virus:String,contam:String){
-//        self.id = id;
-//        self.virus = virus;
-//        self.contam = contam;
-//        self.oCondition = condition;
-//        self.condition = condition;
-//        self.reporter = reporter;
-//        self.long = long;
-//        self.lat = lat;
-//        self.type = type;
-//        
-//    }
+    init(id:String, long: String, lat: String, oCondition:String, condition:String, type: String, reporter:String, virus:String,contam:String){
+        self.id = id;
+        self.virus = virus;
+        self.contam = contam;
+        self.oCondition = condition;
+        self.condition = condition;
+        self.reporter = reporter;
+        self.long = long;
+        self.lat = lat;
+        self.type = type;
+        
+    }
 }
 
