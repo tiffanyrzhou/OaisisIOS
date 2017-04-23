@@ -11,6 +11,7 @@
 		905F0C9C897FC77630410E61 /* Pods_Oasis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7FC87C7C1F6095778360EC /* Pods_Oasis.framework */; };
 		9828CCBD1E5FB976004ACD32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */; };
 		985D85381EABFFCB00E2D31B /* WaterSourceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */; };
+		986D64341EAC5A0300D75DCD /* WaterQualityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */; };
 		98763FA61E5DF303002A2EDD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98763FA51E5DF303002A2EDD /* AppDelegate.swift */; };
 		98763FA81E5DF303002A2EDD /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98763FA71E5DF303002A2EDD /* WelcomeController.swift */; };
 		98763FAD1E5DF303002A2EDD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98763FAC1E5DF303002A2EDD /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		9671CEAA998B2D23019C28A5 /* Pods-Oasis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Oasis.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Oasis/Pods-Oasis.debug.xcconfig"; sourceTree = "<group>"; };
 		9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterSourceViewController.swift; sourceTree = "<group>"; };
+		986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaterQualityViewController.swift; sourceTree = "<group>"; };
 		98763FA21E5DF303002A2EDD /* Oasis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Oasis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		98763FA51E5DF303002A2EDD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		98763FA71E5DF303002A2EDD /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				98A0B5621E5EB71100A35301 /* HomeViewController.swift */,
 				9828CCBC1E5FB976004ACD32 /* LoginViewController.swift */,
 				985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */,
+				986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				98763FA61E5DF303002A2EDD /* AppDelegate.swift in Sources */,
 				98CAE88E1E69C72800D81D9F /* UserType.swift in Sources */,
 				987D4ABA1E679A4C003A4B4E /* User.swift in Sources */,
+				986D64341EAC5A0300D75DCD /* WaterQualityViewController.swift in Sources */,
 				98AC61BF1E5E4ACE00C0197C /* RegisterViewController.swift in Sources */,
 				985D85381EABFFCB00E2D31B /* WaterSourceViewController.swift in Sources */,
 				9828CCBD1E5FB976004ACD32 /* LoginViewController.swift in Sources */,

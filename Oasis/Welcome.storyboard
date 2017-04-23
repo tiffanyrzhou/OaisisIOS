@@ -96,22 +96,24 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wFK-rP-OpM">
-                                <rect key="frame" x="147" y="212" width="168" height="30"/>
+                                <rect key="frame" x="131" y="212" width="184" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="bottom" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GuC-Ya-X2D">
-                                <rect key="frame" x="147" y="267" width="168" height="30"/>
+                                <rect key="frame" x="131" y="267" width="184" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eie-hh-Biv">
-                                <rect key="frame" x="157" y="358" width="38" height="30"/>
+                                <rect key="frame" x="120" y="358" width="153" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.25370907783508301" green="0.6078677773475647" blue="0.97795015573501587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <action selector="attemptLogin:" destination="dJ6-HW-RUf" eventType="touchUpInside" id="gnZ-M3-tTf"/>
@@ -124,14 +126,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izg-RQ-RGr">
-                                <rect key="frame" x="152" y="396" width="48" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Cea-FO-zPG"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRJ-Wi-lih">
                                 <rect key="frame" x="43" y="315" width="295" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -139,6 +133,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="izg-RQ-RGr">
+                                <rect key="frame" x="120" y="408" width="153" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36067605018615723" green="0.72092920541763306" blue="0.45503783226013184" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="Cea-FO-zPG"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -385,10 +389,10 @@
             </objects>
             <point key="canvasLocation" x="2952.8000000000002" y="191.1544227886057"/>
         </scene>
-        <!--View Controller-->
+        <!--Water Quality View Controller-->
         <scene sceneID="SVf-RW-bIQ">
             <objects>
-                <viewController id="JRy-No-GUF" sceneMemberID="viewController">
+                <viewController id="JRy-No-GUF" customClass="WaterQualityViewController" customModule="Oasis" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mb3-9m-t3y"/>
                         <viewControllerLayoutGuide type="bottom" id="gDs-oV-rHM"/>
@@ -498,6 +502,9 @@
                                 <color key="backgroundColor" red="0.25370907783508301" green="0.6078677773475647" blue="0.97795015573501587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Submit Report"/>
+                                <connections>
+                                    <action selector="submit_Report:" destination="JRy-No-GUF" eventType="touchUpInside" id="U0b-bB-zXc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2o5-aR-YRc">
                                 <rect key="frame" x="127" y="589" width="130" height="30"/>
@@ -516,13 +523,44 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lbl-G7-roL">
+                                <rect key="frame" x="104" y="96" width="239" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kOm-Dx-5b7">
+                                <rect key="frame" x="107" y="154" width="224" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fu9-53-ewh">
+                                <rect key="frame" x="104" y="125" width="233" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="ReportID_label" destination="kOm-Dx-5b7" id="qg6-Rv-eJw"/>
+                        <outlet property="contam" destination="Xmq-ug-fhI" id="Siw-KK-a11"/>
+                        <outlet property="date_label" destination="fu9-53-ewh" id="g1h-rc-qnw"/>
+                        <outlet property="lat" destination="ap0-bn-KCd" id="htb-kf-JZf"/>
+                        <outlet property="long" destination="uxd-DB-3fi" id="D1n-8C-l1P"/>
+                        <outlet property="oCondtion_picker" destination="Saq-Kh-GMo" id="g3O-xI-nbD"/>
+                        <outlet property="reporter_label" destination="Lbl-G7-roL" id="CRD-gF-rIV"/>
+                        <outlet property="virus" destination="J2K-Hv-e7J" id="IfK-Of-NUT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jy2-mf-tVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1551.2" y="900.00000000000011"/>
+            <point key="canvasLocation" x="1240.8" y="1047.5262368815593"/>
         </scene>
         <!--Water Source View Controller-->
         <scene sceneID="1i5-oS-Voq">
@@ -794,7 +832,7 @@
         <image name="logo.png" width="133" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vKW-Je-u0O"/>
-        <segue reference="5mL-lU-5j8"/>
+        <segue reference="Cea-FO-zPG"/>
+        <segue reference="hZd-M5-0Aa"/>
     </inferredMetricsTieBreakers>
 </document>

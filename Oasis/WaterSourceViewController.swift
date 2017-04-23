@@ -24,7 +24,7 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
     let conditionData = ["Waste", "Treatable-Clear", " Treatable-Muddy", "Potable"]
     let typeData = [  ("Bottled"),("Well"),("Stream"),("Lake"),("Spring"),("Other")]
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
-    let reportRef = FIRDatabase.database().reference(withPath: "sourceReport")
+    let reportRef = FIRDatabase.database().reference(withPath: "Report")
     let date = NSDate()
     var reportId: String = "";
     override func viewDidLoad() {
@@ -70,10 +70,10 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if(pickerView.tag == 0) {
-            self.condtion = typeData[row] as String
+            self.type = typeData[row] as String
         }
         else {
-            self.type = conditionData[row] as String
+            self.condtion = conditionData[row] as String
 
         
         }
