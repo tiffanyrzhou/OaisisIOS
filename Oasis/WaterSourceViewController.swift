@@ -38,8 +38,7 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         self.condition_picker.dataSource = self;
         pullProfile();
         date_label.text = date.description;
-        report_number.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue)
-        reportId = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue)
+        report_number.text = "0"
         
 
         // Do any additional setup after loading the view.
@@ -50,12 +49,16 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         if(long.hasText == false || lat.hasText == false) {
             status.text = "Please enter Longtitude and/or Latitude"
         } else {
-             let newReportRef = self.reportRef.child(reportId as String);
+             let newReportRef = self.reportRef.childByAutoId();
             let reportData : Dictionary<String,String> = ["reporter": reporter_label.text!,"date" : date.description,
                 "long": long.text!,
                 "lat": lat.text!,
                 "condition": self.condtion,
-                "type": self.type]
+                "type": self.type,
+                "oCondition": "",
+                "virus" : "",
+                "contam" : ""
+            ]
             newReportRef.setValue(reportData)
                 self.performSegue(withIdentifier: "toHome", sender: self)
         }

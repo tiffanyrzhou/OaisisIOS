@@ -1,3 +1,4 @@
+
 //
 //  WaterQualityViewController.swift
 //  Oasis
@@ -12,6 +13,7 @@ import FirebaseDatabase
 
 class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
 
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var reporter_label: UILabel!
     @IBOutlet weak var date_label: UILabel!
     @IBOutlet weak var ReportID_label: UILabel!
@@ -22,11 +24,12 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
     @IBOutlet weak var oCondtion_picker: UIPickerView!
     
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
-    let reportRef = FIRDatabase.database().reference(withPath: "Report")
+    let reportRef = FIRDatabase.database().reference(withPath: "report")
+    let ref = FIRDatabase.database().reference()
     var oCondition: String = "";
     let conditionData = [("Safe"),("Treatable"),("Unsafe")]
     let date = NSDate()
-    var reportId: String = " ";
+    var reportId: String = "";
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -34,7 +37,7 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
         self.oCondtion_picker.dataSource = self;
         pullProfile();
         date_label.text = date.description;
-        ReportID_label.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
+        ReportID_label.text = "0";
 
         // Do any additional setup after loading the view.
     }
@@ -52,8 +55,20 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
         }) { (error) in
             print(error.localizedDescription)
         }
-        
     }
+        
+//        reportRef.child("reportCount").observeSingleEvent(of: .value, with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+//            let reportId = value?["reportCount"] as? String ?? ""
+//            self.ReportID_label.text = reportId;
+//            // ...
+//        }) { (error) in
+//            print(error.localizedDescription)
+//        }
+
+        
+  //  }
 
     
     // picker view setup
@@ -84,6 +99,25 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
     
 
     @IBAction func submit_Report(_ sender: UIButton) {
+        if(virus.hasText == false || contam.hasText == false) {
+            status.text = "Please enter Virus PPM and/or Latitude"
+        }
+        else if(long.hasText == false || lat.hasText == false) {
+            status.text = "Please enter Longtitude and/or Latitude"
+        } else {
+            let newReportRef = self.reportRef.childByAutoId();
+            let reportData : Dictionary<String,String> = ["reporter": reporter_label.text!,"date" : date.description,
+                "long": long.text!,
+                "lat": lat.text!,
+                "condition": "",
+                "type": "",
+                "oCondition": self.oCondition,
+                "virus" : self.virus.text!,
+                "contam" : self.contam.text!]
+            newReportRef.setValue(reportData)
+            //self.performSegue(withIdentifier: "toHome", sender: self)
+        }
+
     }
     /*
     // MARK: - Navigation
