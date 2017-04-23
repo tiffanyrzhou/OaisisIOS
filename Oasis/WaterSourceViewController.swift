@@ -11,7 +11,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
-
+    @IBOutlet weak var status: UILabel!
     @IBOutlet weak var type_picker: UIPickerView!
     @IBOutlet weak var condition_picker: UIPickerView!
     @IBOutlet weak var lat: UITextField!
@@ -19,12 +19,17 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
     @IBOutlet weak var date_label: UILabel!
     @IBOutlet weak var report_number: UILabel!
     @IBOutlet weak var reporter_label: UILabel!
+    var condtion: String = "";
+    var type: String = "";
     let conditionData = ["Waste", "Treatable-Clear", " Treatable-Muddy", "Potable"]
     let typeData = [  ("Bottled"),("Well"),("Stream"),("Lake"),("Spring"),("Other")]
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
+    let reportRef = FIRDatabase.database().reference(withPath: "report")
     let date = NSDate()
+    var reportId: String = "";
     override func viewDidLoad() {
         super.viewDidLoad()
+        status.text="";
         self.type_picker.tag = 0;
         self.condition_picker.tag = 1;
         self.type_picker.delegate = self;
@@ -33,8 +38,29 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         self.condition_picker.dataSource = self;
         pullProfile();
         date_label.text = date.description;
+        report_number.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
+        reportId = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
+        
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func attempt_submit(_ sender: Any) {
+        if(long.hasText == false || lat.hasText == false) {
+            status.text = "Please enter Longtitude and/or Latitude"
+        } else {
+             let newReportRef = self.reportRef.child(reportId as String);
+            let reportData : Dictionary<String,String> = ["reporter": reporter_label.text!,"date" : date.description,
+                "long": long.text!,
+                "lat": lat.text!,
+                "condition": self.condtion,
+                "type": self.type]
+            newReportRef.setValue(reportData)
+                self.performSegue(withIdentifier: "toHome", sender: self)
+        }
+        
     }
     
     // picker view setup
@@ -42,6 +68,16 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         return 1;
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if(pickerView.tag == 0) {
+            self.condtion = typeData[row] as String
+        }
+        else {
+            self.type = conditionData[row] as String
+
+        
+        }
+    }
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         if(pickerView.tag == 0) {
             return typeData.count
@@ -51,10 +87,7 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         }
     }
     
-    func pickerView(_ pickerView: UIPickerView,
-                    titleForRow row: Int,
-                    forComponent component: Int) -> String? {
-        
+    func pickerView(_ pickerView: UIPickerView,titleForRow row: Int, forComponent component: Int) -> String? {
         if(pickerView.tag == 0) {
             return typeData[row]
         }
@@ -62,12 +95,14 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
             return conditionData[row]
         }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func pullProfile(){
+        
+func pullProfile(){
         let userID = FIRAuth.auth()?.currentUser?.uid
         userInfoRef.child(userID!).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
@@ -79,7 +114,8 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         }) { (error) in
             print(error.localizedDescription)
         }
-    }
+    
+        }
     
 
     /*

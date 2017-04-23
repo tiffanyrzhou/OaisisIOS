@@ -371,6 +371,7 @@
                         <outlet property="usertype_label" destination="tYZ-MB-FjR" id="KdP-OY-vHN"/>
                         <outlet property="welcome_label" destination="eqC-16-WsX" id="PjY-qU-5yl"/>
                         <segue destination="rta-fW-ceW" kind="show" identifier="toHome" id="0WY-La-ZdI"/>
+                        <segue destination="rta-fW-ceW" kind="show" id="rjK-Ah-NiU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtF-X8-PfP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -405,6 +406,9 @@
                                 <color key="backgroundColor" red="0.25370907783508301" green="0.6078677773475647" blue="0.97795015573501587" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Submit Report"/>
+                                <connections>
+                                    <action selector="attempt_submit:" destination="OJu-eD-2yb" eventType="touchUpInside" id="O4o-cX-jpP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Water Source Report" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wuX-nv-y5R">
                                 <rect key="frame" x="107" y="20" width="160" height="21"/>
@@ -434,8 +438,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report #" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdX-6r-X0i">
-                                <rect key="frame" x="27" y="137" width="67" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Report ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tdX-6r-X0i">
+                                <rect key="frame" x="27" y="137" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -505,6 +509,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLb-N7-fAo">
+                                <rect key="frame" x="27" y="50" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGO-fb-zbp">
                                 <rect key="frame" x="27" y="171" width="77" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -522,7 +533,9 @@
                         <outlet property="long" destination="jb8-4d-ptu" id="gMZ-xe-L6q"/>
                         <outlet property="report_number" destination="gf4-xS-kV3" id="90F-Pw-Vpc"/>
                         <outlet property="reporter_label" destination="gwM-pW-tVG" id="UeF-p6-5RS"/>
+                        <outlet property="status" destination="zLb-N7-fAo" id="QBB-yS-LMV"/>
                         <outlet property="type_picker" destination="Ho9-E6-lTu" id="PrN-3v-kPP"/>
+                        <segue destination="rta-fW-ceW" kind="show" identifier="toHome" id="tei-90-GGc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TiM-cO-Tvw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -632,6 +645,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jlr-2a-aQG"/>
-        <segue reference="s7x-nY-BZu"/>
+        <segue reference="tei-90-GGc"/>
     </inferredMetricsTieBreakers>
 </document>
