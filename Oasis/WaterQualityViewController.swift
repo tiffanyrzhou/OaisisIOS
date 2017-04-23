@@ -33,6 +33,7 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
         self.oCondtion_picker.delegate = self;
         self.oCondtion_picker.dataSource = self;
         pullProfile();
+        date_label.text = date.description;
 
         // Do any additional setup after loading the view.
     }
