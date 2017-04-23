@@ -24,7 +24,7 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
     let conditionData = ["Waste", "Treatable-Clear", " Treatable-Muddy", "Potable"]
     let typeData = [  ("Bottled"),("Well"),("Stream"),("Lake"),("Spring"),("Other")]
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
-    let reportRef = FIRDatabase.database().reference(withPath: "report")
+    let reportRef = FIRDatabase.database().reference(withPath: "sourceReport")
     let date = NSDate()
     var reportId: String = "";
     override func viewDidLoad() {
