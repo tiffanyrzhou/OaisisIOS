@@ -38,9 +38,8 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
         self.condition_picker.dataSource = self;
         pullProfile();
         date_label.text = date.description;
-        report_number.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
-        reportId = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
-        
+        report_number.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue)
+        reportId = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue)
         
 
         // Do any additional setup after loading the view.

@@ -26,14 +26,15 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
     var oCondition: String = "";
     let conditionData = [("Safe"),("Treatable"),("Unsafe")]
     let date = NSDate()
-    var reportId: String = "";
+    var reportId: String = " ";
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad();
         self.oCondtion_picker.delegate = self;
         self.oCondtion_picker.dataSource = self;
         pullProfile();
         date_label.text = date.description;
+        ReportID_label.text = String((FIRAuth.auth()?.currentUser?.uid.hashValue)! + date.hashValue);
 
         // Do any additional setup after loading the view.
     }
