@@ -15,12 +15,11 @@ class ViewReportTableViewController: UITableViewController {
     let ref = FIRDatabase.database().reference().child("report")
     var status: String = "inital"
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        fetchReport();
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        fetchReport();
         reports.append(Report(id: "dummy report", long: "fucking firebase", lat: "sucks", oCondition: "why doesn't", condition: "this work",type: "dsad",reporter: "dsada", virus: "fdsfs", contam: "sdfsfsf"))
         tableView.reloadData();
         status = "finish"
@@ -62,13 +61,13 @@ class ViewReportTableViewController: UITableViewController {
         reporter.text = reports[indexPath.row].reporter
         
         let type = cell.viewWithTag(3) as! UILabel
-        type.text = reports[indexPath.row].condition
+        type.text = reports[indexPath.row].type
         
         let condition = cell.viewWithTag(4) as! UILabel
         condition.text = reports[indexPath.row].condition
         
         let virus = cell.viewWithTag(5) as! UILabel
-        virus.text = reports[indexPath.row].condition
+        virus.text = reports[indexPath.row].virus
         
         let contam = cell.viewWithTag(6) as! UILabel
         contam.text = reports[indexPath.row].contam
@@ -87,7 +86,7 @@ class ViewReportTableViewController: UITableViewController {
     
     func fetchReport(){
         status = "fetch reports"
-        ref.observe(.value, with: { (snapshot) in
+        ref.observe(.childAdded, with: { (snapshot) in
             if let value = snapshot.value as? NSDictionary {
                 let long  = value["long"] as? String ?? ""
                 let lat = value["lat"] as? String ?? ""
@@ -100,8 +99,9 @@ class ViewReportTableViewController: UITableViewController {
                 self.status = "entered"
                 let id = snapshot.key;
                 self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+                self.tableView.reloadData();
             }
-        })
+        })}
 //        ref.observe(.value, with: { snapshot in
 //            for child in snapshot.children {
 //                let value = snapshot.value as? NSDictionary
@@ -174,10 +174,10 @@ class ViewReportTableViewController: UITableViewController {
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-    }
+    //}
 }
 
 

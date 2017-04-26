@@ -24,7 +24,7 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
     let conditionData = ["Waste", "Treatable-Clear", " Treatable-Muddy", "Potable"]
     let typeData = [  ("Bottled"),("Well"),("Stream"),("Lake"),("Spring"),("Other")]
     let userInfoRef = FIRDatabase.database().reference(withPath: "usersInfo")
-    let reportRef = FIRDatabase.database().reference(withPath: "Report")
+    let reportRef = FIRDatabase.database().reference(withPath: "report")
     let date = NSDate()
     var reportId: String = "";
     override func viewDidLoad() {
@@ -50,7 +50,9 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
             status.text = "Please enter Longtitude and/or Latitude"
         } else {
              let newReportRef = self.reportRef.childByAutoId();
-            let reportData : Dictionary<String,String> = ["reporter": reporter_label.text!,"date" : date.description,
+            let reportData : Dictionary<String,String> = [
+                "reporter": reporter_label.text!,
+                "date" : date.description,
                 "long": long.text!,
                 "lat": lat.text!,
                 "condition": self.condtion,
