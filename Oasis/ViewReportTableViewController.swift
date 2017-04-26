@@ -20,7 +20,7 @@ class ViewReportTableViewController: UITableViewController {
         fetchReport();
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        reports.append(Report(id: "dummy report", long: "fucking firebase", lat: "sucks", oCondition: "why doesn't", condition: "this work",type: "dsad",reporter: "dsada", virus: "fdsfs", contam: "sdfsfsf"))
+        reports.append(Report(id: "dummy report", long: "fucking firebase", lat: "sucks", oCondition: "why doesn't", condition: "this work",type: "dsad",reporter: "dsada", virus: "fdsfs", contam: "sdfsfsf", reportType: " "))
         tableView.reloadData();
         status = "finish"
         
@@ -81,6 +81,9 @@ class ViewReportTableViewController: UITableViewController {
         let oCondition = cell.viewWithTag(9) as! UILabel
         oCondition.text = reports[indexPath.row].oCondition
         
+        let reportType = cell.viewWithTag(10) as! UILabel
+        reportType.text = reports[indexPath.row].reportType
+        
         return cell
     }
     
@@ -96,9 +99,9 @@ class ViewReportTableViewController: UITableViewController {
                 let virus = value["virus"] as? String ?? ""
                 let contam = value["contam"] as? String ?? ""
                 let reporter = value["reporter"] as? String ?? ""
-                self.status = "entered"
+                let reportType = value["reportType"] as? String ?? ""
                 let id = snapshot.key;
-                self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+                self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam,reportType: reportType), at: 0)
                 self.tableView.reloadData();
             }
         })}

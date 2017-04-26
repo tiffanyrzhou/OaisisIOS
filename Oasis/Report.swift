@@ -19,9 +19,10 @@ struct Report {
     let long: String
     let lat: String
     let id: String
+    let reportType:String
     
     
-    init(id:String, long: String, lat: String, oCondition:String, condition:String, type: String, reporter:String, virus:String,contam:String){
+    init(id:String, long: String, lat: String, oCondition:String, condition:String, type: String, reporter:String, virus:String,contam:String, reportType: String){
         self.id = id;
         self.virus = virus;
         self.contam = contam;
@@ -31,6 +32,7 @@ struct Report {
         self.long = long;
         self.lat = lat;
         self.type = type;
+        self.reportType = reportType
         
     }
 }

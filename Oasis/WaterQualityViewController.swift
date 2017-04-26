@@ -115,7 +115,8 @@ class WaterQualityViewController: UIViewController,UIPickerViewDataSource,UIPick
                 "type": "",
                 "oCondition": self.oCondition,
                 "virus" : self.virus.text!,
-                "contam" : self.contam.text!]
+                "contam" : self.contam.text!,
+                "reportType" : "Water Quality Report"]
             newReportRef.setValue(reportData)
             self.performSegue(withIdentifier: "toHome", sender: self)
         }

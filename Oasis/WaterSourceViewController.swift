@@ -59,7 +59,8 @@ class WaterSourceViewController: UIViewController,UIPickerViewDataSource,UIPicke
                 "type": self.type,
                 "oCondition": "",
                 "virus" : "",
-                "contam" : ""
+                "contam" : "",
+                "reportType" : "Water Source Report"
             ]
             newReportRef.setValue(reportData)
                 self.performSegue(withIdentifier: "toHome", sender: self)
