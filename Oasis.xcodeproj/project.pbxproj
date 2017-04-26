@@ -20,6 +20,7 @@
 		98763FB01E5DF303002A2EDD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98763FAE1E5DF303002A2EDD /* LaunchScreen.storyboard */; };
 		98763FBB1E5DF304002A2EDD /* OasisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98763FBA1E5DF304002A2EDD /* OasisTests.swift */; };
 		987D4ABA1E679A4C003A4B4E /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 987D4AB91E679A4B003A4B4E /* User.swift */; };
+		988D489C1EB03888000C3439 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 988D489B1EB03888000C3439 /* MapViewController.swift */; };
 		98A0B5631E5EB71100A35301 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98A0B5621E5EB71100A35301 /* HomeViewController.swift */; };
 		98AC61BF1E5E4ACE00C0197C /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98AC61BE1E5E4ACE00C0197C /* RegisterViewController.swift */; };
 		98BEF6DA1EAA7E60001CC71C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BEF6D81EAA7E60001CC71C /* ProfileViewController.swift */; };
@@ -64,6 +65,7 @@
 		98763FBA1E5DF304002A2EDD /* OasisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OasisTests.swift; sourceTree = "<group>"; };
 		98763FBC1E5DF304002A2EDD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		987D4AB91E679A4B003A4B4E /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		988D489B1EB03888000C3439 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		98A0B5611E5EAF2200A35301 /* Oasis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Oasis.entitlements; sourceTree = "<group>"; };
 		98A0B5621E5EB71100A35301 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		98AC61BE1E5E4ACE00C0197C /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				985D85371EABFFCB00E2D31B /* WaterSourceViewController.swift */,
 				986D64331EAC5A0300D75DCD /* WaterQualityViewController.swift */,
 				986D64371EAD039700D75DCD /* ViewReportTableViewController.swift */,
+				988D489B1EB03888000C3439 /* MapViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				98CAE88E1E69C72800D81D9F /* UserType.swift in Sources */,
 				987D4ABA1E679A4C003A4B4E /* User.swift in Sources */,
 				986D64341EAC5A0300D75DCD /* WaterQualityViewController.swift in Sources */,
+				988D489C1EB03888000C3439 /* MapViewController.swift in Sources */,
 				98AC61BF1E5E4ACE00C0197C /* RegisterViewController.swift in Sources */,
 				985D85381EABFFCB00E2D31B /* WaterSourceViewController.swift in Sources */,
 				986D64381EAD039700D75DCD /* ViewReportTableViewController.swift in Sources */,

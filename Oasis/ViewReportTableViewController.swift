@@ -8,35 +8,22 @@
 
 import UIKit
 import Firebase
+import FirebaseDatabase
 
 class ViewReportTableViewController: UITableViewController {
     var reports = [Report]()
-    let Ref = FIRDatabase.database().reference(withPath: "report")
+    let ref = FIRDatabase.database().reference().child("report")
+    var status: String = "inital"
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        Ref.queryOrderedByKey().observeSingleEvent(of: .childAdded,with: { (snapshot) in
-            // Get user value
-            let value = snapshot.value as? NSDictionary
-            let long  = value?["long"] as? String ?? ""
-            let lat = value?["lat"] as? String ?? ""
-            let condition = value?["condition"] as? String ?? ""
-            let oCondition = value?["oCondition"] as? String ?? ""
-            let type = value?["type"] as? String ?? ""
-            let virus = value?["virus"] as? String ?? ""
-            let contam = value?["cotam"] as? String ?? ""
-            let reporter =  value?["reporter"] as? String ?? ""
-            let id = snapshot.key;
-            self.reports.append(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam))
-            // ...
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        self.tableView.reloadData();
-        
+        fetchReport();
+        reports.append(Report(id: "dummy report", long: "fucking firebase", lat: "sucks", oCondition: "why doesn't", condition: "this work",type: "dsad",reporter: "dsada", virus: "fdsfs", contam: "sdfsfsf"))
+        tableView.reloadData();
+        status = "finish"
         
     }
     
@@ -56,13 +43,18 @@ class ViewReportTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        return 1;
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.reports.count;
     }
+
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reportCell", for: indexPath)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reportCell", for: indexPath)
         let id = cell.viewWithTag(1)as! UILabel
         id.text=reports[indexPath.row].id
         
@@ -90,9 +82,94 @@ class ViewReportTableViewController: UITableViewController {
         let oCondition = cell.viewWithTag(9) as! UILabel
         oCondition.text = reports[indexPath.row].oCondition
         
-        
         return cell
     }
+    
+    func fetchReport(){
+        status = "fetch reports"
+        ref.observe(.value, with: { (snapshot) in
+            if let value = snapshot.value as? NSDictionary {
+                let long  = value["long"] as? String ?? ""
+                let lat = value["lat"] as? String ?? ""
+                let condition = value["condition"] as? String ?? ""
+                let oCondition = value["oCondition"] as? String ?? ""
+                let type = value["type"] as? String ?? ""
+                let virus = value["virus"] as? String ?? ""
+                let contam = value["contam"] as? String ?? ""
+                let reporter = value["reporter"] as? String ?? ""
+                self.status = "entered"
+                let id = snapshot.key;
+                self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+            }
+        })
+//        ref.observe(.value, with: { snapshot in
+//            for child in snapshot.children {
+//                let value = snapshot.value as? NSDictionary
+//                    let long  = value?["long"] as? String ?? ""
+//                    let lat = value?["lat"] as? String ?? ""
+//                    let condition = value?["condition"] as? String ?? ""
+//                          let oCondition = value?["oCondition"] as? String ?? ""
+//                         let type = value?["type"] as? String ?? ""
+//                        let virus = value?["virus"] as? String ?? ""
+//                        let contam = value?["contam"] as? String ?? ""
+//                         let reporter =  value?["reporter"] as? String ?? ""
+//                         self.status = "entered"
+//                          let id = snapshot.key;
+//                          self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+//            }
+//        })
+//    }
+//        FIRDatabase.setLoggingEnabled(true)
+//        FIRDatabase.
+//        ref.child("report").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+//            for childSnapshot in snapshot.children {
+//                if let value = snapshot.value as? NSDictionary {
+//                                let long  = value["long"] as? String ?? ""
+//                                let lat = value["lat"] as? String ?? ""
+//                                let condition = value["condition"] as? String ?? ""
+//                                let oCondition = value["oCondition"] as? String ?? ""
+//                                let type = value["type"] as? String ?? ""
+//                            let virus = value["virus"] as? String ?? ""
+//                                let contam = value["contam"] as? String ?? ""
+//                                let reporter = value["reporter"] as? String ?? ""
+//                                self.status = "entered"
+//                                let id = snapshot.key;
+//                                self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+//
+//                }}})}
+    //            .observe(.childAdded, with: { snapshot in
+//            if let value = snapshot.value as? NSDictionary {
+//            let long  = value["long"] as? String ?? ""
+//            let lat = value["lat"] as? String ?? ""
+//            let condition = value["condition"] as? String ?? ""
+//            let oCondition = value["oCondition"] as? String ?? ""
+//            let type = value["type"] as? String ?? ""
+//            let virus = value["virus"] as? String ?? ""
+//            let contam = value["contam"] as? String ?? ""
+//            let reporter = value["reporter"] as? String ?? ""
+//            self.status = "entered"
+//            let id = snapshot.key;
+//            self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), at: 0)
+//            }
+//        
+        
+        
+        
+//        Ref.queryOrderedByKey().observeSingleEvent(of: .value ,with: { (snapshot) in
+//            // Get user value
+//            let value = snapshot.value as? NSDictionary
+////            let long  = value?["long"] as? String ?? ""
+////            let lat = value?["lat"] as? String ?? ""
+////            let condition = value?["condition"] as? String ?? ""
+////            let oCondition = value?["oCondition"] as? String ?? ""
+////            let type = value?["type"] as? String ?? ""
+////            let virus = value?["virus"] as? String ?? ""
+////            let contam = value?["contam"] as? String ?? ""
+////            let reporter =  value?["reporter"] as? String ?? ""
+//         self.status = "entered"
+////            let id = snapshot.key;
+////            self.reports.insert(Report(id: id,long: long,lat: lat,oCondition: oCondition,condition: condition,type: type,reporter: reporter,virus: virus,contam: contam), 0)
+            // ...
     
     // MARK: - Navigation
     
@@ -101,5 +178,6 @@ class ViewReportTableViewController: UITableViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-
 }
+
+
